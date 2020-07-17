@@ -1,0 +1,21 @@
+{%extends 'Base.html'%}
+
+{%block title%}Edit{%endblock%}
+{%block body%}
+<hr>
+<form action='\Posts\Edit\{{post.id}}' method='POST'>
+  <label for="title">Title</label>
+  <input class="form-control mr-sm-2" type="search" placeholder="Enter Title" aria-label="Enter Title" name="title" id="title" value="{{post.title}}">
+ 
+  <label for="content">Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  name="content" id="content" >{{post.content}}</textarea>
+  
+  <label for="author">Author</label>
+  <input class="form-control mr-sm-2" type="search" placeholder="Enter Author" aria-label="Enter Author" name="author" id="author" value = "{{post.author}}">
+<br>
+  <input type='Submit' button type="button" class="btn btn-success" id='submit' name ='Save'>
+
+
+</form>
+</hr>
+{%endblock%}

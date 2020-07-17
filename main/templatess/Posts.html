@@ -1,0 +1,33 @@
+{%extends 'Base.html'%}
+
+{%block title%}Posts{%endblock%}
+{%block body%}
+<form action='\Posts' method='POST'>
+  <label for="title">Title</label>
+  <input class="form-control mr-sm-2" type="search" placeholder="Enter Title" aria-label="Enter Title" name="title" id="title">
+  <!-- <input type="text" name="title" id="title"></input> -->
+  <label for="content">Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Content goes here" aria-label="Content goes here" name="content" id="content"></textarea>
+  <!-- <input class="form-control mr-sm-2" type="search" placeholder="Content goes here" aria-label="Content goes here" name="content" id="content"> -->
+  <!-- <input type="text" name="content" id="content"></input> -->
+  <label for="author">Author</label>
+  <input class="form-control mr-sm-2" type="search" placeholder="Enter Author" aria-label="Enter Author" name="author" id="author">
+  <br>
+   <!-- <input type="text" name="author" id="author"></input> -->
+  <input type='Submit' button type="button" class="btn btn-success" id='submit' name ='Submit'>
+</form>
+<hr><br>
+
+    {%for i in posts%}  
+        <h4>{{i.title}}<br></h4>
+        <a style="white-space: pre-wrap;">{{i.content}}</a><br>
+        <br>
+        <h6>Created By: {{i.author}}<br></h6>
+        <h6>Dated : {{i.date_post}}</h6>
+        <!-- <a href ='/Posts/Edit/{{i.id}}' >Edit</a>  &#9; <a href ='/Posts/Delete/{{i.id}}' >Delete</a> -->
+        <a href ="/Posts/Edit/{{i.id}}"> <button type="button" class="btn btn-primary">Edit</button></a>
+        <a href ='/Posts/Delete/{{i.id}}'><button type="button" class="btn btn-danger">Delete</button></a>
+
+        <hr>
+        {%endfor%}
+{%endblock%}
